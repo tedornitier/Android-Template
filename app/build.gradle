@@ -15,6 +15,7 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "ENDPOINT", "\"https://api.github.com/\"" // TODO example
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -71,4 +72,19 @@ dependencies {
     // Timber
     def timber_version = '5.0.1'
     implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // region API
+    // Retrofit
+    def retrofit_version = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    // OkHttp
+    def okhttp_version = '5.0.0-alpha.10'
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    // Moshi
+    def moshi_version = '1.14.0'
+    implementation "com.squareup.moshi:moshi:$moshi_version"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    // endregion
 }
