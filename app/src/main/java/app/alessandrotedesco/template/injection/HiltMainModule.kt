@@ -1,7 +1,9 @@
 package app.alessandrotedesco.template.injection
 
 import android.content.Context
+import androidx.room.Room
 import app.alessandrotedesco.template.apiservice.RemoteDataSourceRetrofit
+import app.alessandrotedesco.template.database.AppDatabase
 import app.alessandrotedesco.template.datastore.DataStoreManager
 import dagger.Module
 import dagger.Provides
@@ -20,4 +22,14 @@ object HiltMainModule {
     @Provides
     @Singleton
     fun provideDataStoreManager(@ApplicationContext context: Context): DataStoreManager = DataStoreManager(context)
+
+    @Singleton
+    @Provides
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase {
+        return Room.databaseBuilder(
+            context,
+            AppDatabase::class.java,
+            "database.db"
+        ).fallbackToDestructiveMigration().build()
+    }
 }
