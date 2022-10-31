@@ -79,7 +79,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     // OkHttp
     def okhttp_version = '5.0.0-alpha.10'
-    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
     // Moshi
     def moshi_version = '1.14.0'
