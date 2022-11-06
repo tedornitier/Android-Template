@@ -1,4 +1,4 @@
-package app.alessandrotedesco.template.ui.section
+package app.alessandrotedesco.template.ui.section.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

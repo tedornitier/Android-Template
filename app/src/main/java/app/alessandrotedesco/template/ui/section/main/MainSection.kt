@@ -8,7 +8,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import app.alessandrotedesco.template.ui.section.MainViewModel
 import app.alessandrotedesco.template.ui.theme.TemplateTheme
 
 @Composable
