@@ -1,10 +1,11 @@
 package app.alessandrotedesco.template.apiservice
 
-import app.alessandrotedesco.template.apiservice.model.MyEnum
+import app.alessandrotedesco.template.apiservice.model.Pokemon
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface Service {
-    @GET("Enum") // TODO example
-    suspend fun getEnum(): Response<MyEnum>
+    @GET("pokemon/{name}") // TODO example
+    suspend fun getPokemon(@Path(value = "name") name: String): Response<Pokemon>
 }

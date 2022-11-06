@@ -15,7 +15,7 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-        buildConfigField "String", "ENDPOINT", "\"https://api.github.com/\"" // TODO example
+        buildConfigField "String", "ENDPOINT", "\"https://pokeapi.co/api/v2/\"" // TODO example
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
