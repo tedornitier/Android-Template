@@ -107,4 +107,7 @@ dependencies {
     // Coroutines
     def coroutines_version = '1.5.2'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    // Accompanist
+    implementation "com.google.accompanist:accompanist-permissions:0.25.0"
 }
