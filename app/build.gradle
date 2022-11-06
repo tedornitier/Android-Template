@@ -13,8 +13,8 @@ android {
         applicationId "app.alessandrotedesco.template"
         minSdk 24
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         buildConfigField "String", "ENDPOINT", "\"https://pokeapi.co/api/v2/\"" // TODO example
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
