@@ -3,7 +3,7 @@ package app.alessandrotedesco.template.apiservice
 import app.alessandrotedesco.template.BuildConfig
 import app.alessandrotedesco.template.apiservice.adapter.MyEnumAdapter
 import app.alessandrotedesco.template.apiservice.interceptors.HeaderInterceptor
-import app.alessandrotedesco.template.apiservice.model.MyEnum
+import app.alessandrotedesco.template.apiservice.model.Pokemon
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -45,7 +45,7 @@ class RemoteDataSourceRetrofit: BaseRepo() {
         client = retrofit.create(Service::class.java)
     }
 
-    suspend fun getEnum(): Resource<MyEnum> = safeApiCall { // TODO example
-        client.getEnum()
+    suspend fun getPokemon(name: String): Resource<Pokemon> = safeApiCall { // TODO example
+        client.getPokemon(name)
     }
 }
