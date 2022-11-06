@@ -1,7 +1,9 @@
 package app.alessandrotedesco.template.ui.section.main
 
+import android.Manifest
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
@@ -13,6 +15,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import app.alessandrotedesco.template.apiservice.model.Pokemon
 import app.alessandrotedesco.template.ui.theme.TemplateTheme
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.isGranted
+import com.google.accompanist.permissions.rememberPermissionState
 
 @Composable
 fun MainSection(navController: NavHostController, viewModel: MainViewModel = hiltViewModel()) {
@@ -21,8 +26,12 @@ fun MainSection(navController: NavHostController, viewModel: MainViewModel = hil
     }
 }
 
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun MainSectionUI(navController: NavHostController, pokemon: MutableLiveData<Pokemon>, getPokemon: (String) -> Unit = {}) {
+    val notificationsPermissionState =
+        rememberPermissionState(permission = Manifest.permission.POST_NOTIFICATIONS)
+
     Column {
         Text(text = pokemon.observeAsState().value?.let { it.name + " #" + it.id }
             ?: "??? #??") // TODO example
@@ -32,8 +41,21 @@ fun MainSectionUI(navController: NavHostController, pokemon: MutableLiveData<Pok
         Button(onClick = { getPokemon("charizard") }) {
             Text(text = "Get Charizard")
         }
+        if (notificationsPermissionState.status.isGranted) {
+            OutlinedButton(onClick = showNotification()) {
+                Text(text = "Show notification")
+            }
+        } else {
+            OutlinedButton(onClick = notificationsPermissionState::launchPermissionRequest) {
+                Text(text = "Allow notifications")
+            }
+        }
     }
     // TODO example: navController.navigate(Main.Example2.route)
+}
+
+fun showNotification(): () -> Unit {
+    TODO()
 }
 
 @Preview(showBackground = true)
